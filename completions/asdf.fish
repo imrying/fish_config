@@ -1,0 +1,1 @@
+/home/imrying/.asdf/completions/asdf.fish
