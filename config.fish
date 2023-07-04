@@ -8,7 +8,6 @@ set -x PATH $HOME/.cargo/bin $PATH
 source ~/.asdf/asdf.fish
 
 
-
 export GODEBUG=cgocheck=0
 
 function fish_greeting
@@ -29,3 +28,8 @@ function tagion-cov --description 'run unittests with dmd and create cov'
     make unittest DC=dmd COV=1;
     clean-lst;
 end
+
+function multigraph --description 'convert all *.hibon files to svg'
+    parallel --progress 'set base (basename {} .hibon) ; graphview {} | neato -Tsvg -o $base.svg' ::: *.hibon
+end
+starship init fish | source
